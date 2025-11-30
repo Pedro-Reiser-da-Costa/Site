@@ -1,48 +1,103 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pacotes de Criação de Sites - Pedro Reiser da Costa</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Pedro | Portifólio</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <header>
-        <h1>Pacotes de Criação de Sites</h1>
-    </header>
-    <main>
-        <section class="pacote">
-            <h2>Pacote 1 – Presença Básica</h2>
-            <p class="preco">R$ 400 (único) + R$ 50/mensal</p>
-            <ul>
-                <li>1 página (cartão de visita online)</li>
-                <li>Foto e descrição do negócio</li>
-                <li>Botão de contato no WhatsApp</li>
-                <li>Mapa com endereço no Google</li>
-                <li>Hospedagem e domínio inclusos</li>
-                <li>1 atualização simples por mês</li>
-            </ul>
-        </section>
-        <section class="pacote">
-            <h2>Pacote 2 – Cardápio Online / Produtos</h2>
-            <p class="preco">R$ 700 (único) + R$ 80/mensal</p>
-            <ul>
-                <li>Até 3 páginas (Home, Cardápio/Produtos, Contato)</li>
-                <li>Fotos e descrições dos produtos</li>
-                <li>Botão de WhatsApp para pedidos</li>
-                <li>Mapa e endereço no Google</li>
-                <li>Hospedagem e domínio inclusos</li>
-                <li>2 atualizações simples por mês</li>
-            </ul>
-        </section>
-        <p class="observacao">Com qualquer pacote, sua empresa estará no Google, terá um endereço fácil para enviar aos clientes e ficará com cara de negócio profissional.</p>
+    <div class="particulas"></div>
+
+    <nav class="navegacao">
+        <ul class="menu">
+            <li><a href="#inicio" class="menu-link">Início</a></li>
+            <li><a href="#sobre" class="menu-link">Sobre</a></li>
+            <li><a href="#projetos" class="menu-link">Projetos</a></li>
+            <li><a href="#contatos" class="menu-link">Contato</a></li>
+        </ul>
+    </nav>
+
+    <main id="inicio" class="cabecalho">
+        <img src="./img/perfil3.jfif" alt="Foto de Pedro Reiser da Costa" class="foto-perfil">
+        <h1>Pedro Reiser da Costa</h1>
+        <p class="cabecalho-sub-titulo">Developer</p>
     </main>
-    <footer>
-        <p>Pedro Reiser da Costa — 47 99900-0202</p>
-    </footer>
 
-    <a href="https://wa.me/5547999000202" class="whatsapp" target="_blank">💬</a>
+    <section id="sobre" class="secao">
+        <h2 class="sobre-titulo">Sobre Mim</h2>
+        <div class="sobre-caixa">
+            <p class="sobre-paragrafo">
+                Sou Pedro Reiser da Costa, desenvolvedor focado em criar interfaces modernas, intuitivas e responsivas. Tenho experiência prática com HTML, CSS, JavaScript e TailwindCSS, sempre buscando transformar ideias em soluções funcionais, rápidas e visualmente agradáveis.
+                <br><br>
+                Meu objetivo é evoluir continuamente como desenvolvedor front-end, aprendendo novas tecnologias e entregando projetos com qualidade profissional. Prezo por código limpo, organização e atenção aos detalhes — desde a arquitetura visual até a experiência do usuário.
+                <br><br>
+                Atualmente, estou trabalhando em projetos pessoais para aperfeiçoar minhas habilidades e ampliar meu portfólio. Estou sempre aberto a novas oportunidades, colaborações e desafios que me permitam crescer ainda mais na área de desenvolvimento.
+            </p>
+        </div>
+    </section>
 
-    <script src="script.js"></script>
+    <section id="projetos" class="secao">
+        <h2 class="projetos-titulo">Projetos</h2>
+        <div class="projetos-caixa">
+
+            <!-- PROJETO 1 -->
+            <div class="projetos-card" onclick="window.open('https://github.com/Pedro-Reiser-da-Costa/clone-spotify', '_blank')">
+                <img src="img/projeto1.png" alt="Clone do Spotify" class="projetos-imagem">
+                <div class="caixa-textos-projeto">
+                    <h3 class="info-projetos">Clone do Spotify</h3>
+                    <p class="paragrafo-projetos">
+                        Interface inspirada no Spotify, desenvolvida para praticar layout responsivo,
+                        componentes visuais e design moderno utilizando HTML, CSS e JavaScript.
+                    </p>
+                </div>
+            </div>
+
+            <!-- PROJETO 2 -->
+            <div class="projetos-card" onclick="window.open('https://github.com/Pedro-Reiser-da-Costa/carrinho-de-compras', '_blank')">
+                <img src="img/projeto2.png" alt="Carrinho de Compras" class="projetos-imagem">
+                <div class="caixa-textos-projeto">
+                    <h3 class="info-projetos">Carrinho de Compras</h3>
+                    <p class="paragrafo-projetos">
+                        Aplicação com funcionalidade de adicionar e remover itens do carrinho.
+                        Projeto focado em lógica com JavaScript, manipulação de DOM e atualização dinâmica da interface.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contatos" class="secao">
+        <h2 class="contato-titulo">Entre em Contato</h2>
+        <form class="formulario-contato" id="formulario" onsubmit="enviarWhats(event)">
+            <div class="grupo-form">
+                <input placeholder="Nome" class="campo-form" id="nome">
+            </div>
+            <div class="grupo-form">
+                <textarea placeholder="Digite sua mensagem" class="campo-form" id="mensagem" rows="4"></textarea>
+            </div>
+            <button type="submit" class="botao-form">Enviar</button>
+        </form>
+    </section>
+
+    <script>
+        function enviarWhats(event) {
+            event.preventDefault();
+
+            const nome = document.getElementById('nome').value;
+            const mensagem = document.getElementById('mensagem').value;
+            const telefone = '5547999000202';
+
+            const texto = `Olá! Me chamo ${nome}, ${mensagem}`;
+            const msgFormatada = encodeURIComponent(texto);
+            const url = `https://whatsa.me/${telefone}/?t=${msgFormatada}`;
+
+            window.open(url, '_blank');
+        }
+    </script>
+
 </body>
 </html>
